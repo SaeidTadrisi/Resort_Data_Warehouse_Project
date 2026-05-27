@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: hotel_raw
+    schema: hotel_transactional
+    tables:
+      - name: Person
+      - name: Resort
+      - name: Hotel
+      - name: Room
+      - name: Rent

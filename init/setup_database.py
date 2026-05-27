@@ -15,6 +15,7 @@ def create_database_and_tables():
         cursor = connection.cursor()
 
         sql_commands = [
+            "CREATE DATABASE IF NOT EXISTS hotel_warehouse;"
             "CREATE DATABASE IF NOT EXISTS hotel_transactional;",
             "USE hotel_transactional;",
 

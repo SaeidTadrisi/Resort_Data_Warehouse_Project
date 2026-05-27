@@ -1,1 +1,13 @@
 /.idea/*
+
+logs/
+*.log
+
+target/
+dbt_packages/
+dbt_modules/
+
+__pycache__/
+*.pyc
+.venv/
+venv/
