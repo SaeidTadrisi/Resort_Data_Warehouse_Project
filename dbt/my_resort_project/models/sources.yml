@@ -2,10 +2,17 @@ version: 2
 
 sources:
   - name: hotel_raw
+    description: "Normalized transactional tables generated for the resort management domain."
+    database: hotel_transactional
     schema: hotel_transactional
     tables:
-      - name: Person
-      - name: Resort
-      - name: Hotel
-      - name: Room
-      - name: Rent
+      - name: person
+      - name: resort
+      - name: hotel
+      - name: room
+      - name: wellness_center
+      - name: specific_service
+      - name: stock_market_title
+      - name: rent
+      - name: rent_service
+      - name: investment

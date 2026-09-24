@@ -1,0 +1,111 @@
+version: 2
+
+models:
+  - name: dim_person
+    description: "Customer dimension for resort analytics."
+    columns:
+      - name: person_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_room
+    description: "Room, hotel, and resort dimension."
+    columns:
+      - name: room_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_service
+    description: "Wellness-service dimension."
+    columns:
+      - name: service_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_investment_title
+    description: "Investment title dimension."
+    columns:
+      - name: title_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_date
+    description: "Conformed date dimension built from all business-process dates."
+    columns:
+      - name: date_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_room_rental
+    description: "One row per room-rental transaction."
+    columns:
+      - name: rental_id
+        tests:
+          - not_null
+          - unique
+      - name: person_id
+        tests:
+          - relationships:
+              to: ref('dim_person')
+              field: person_id
+      - name: room_id
+        tests:
+          - relationships:
+              to: ref('dim_room')
+              field: room_id
+      - name: date_id
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+
+  - name: fact_rental_service
+    description: "One row per wellness-service usage transaction."
+    columns:
+      - name: service_usage_id
+        tests:
+          - not_null
+          - unique
+      - name: person_id
+        tests:
+          - relationships:
+              to: ref('dim_person')
+              field: person_id
+      - name: service_id
+        tests:
+          - relationships:
+              to: ref('dim_service')
+              field: service_id
+      - name: date_id
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+
+  - name: fact_investment
+    description: "One row per investment transaction."
+    columns:
+      - name: investment_id
+        tests:
+          - not_null
+          - unique
+      - name: person_id
+        tests:
+          - relationships:
+              to: ref('dim_person')
+              field: person_id
+      - name: title_id
+        tests:
+          - relationships:
+              to: ref('dim_investment_title')
+              field: title_id
+      - name: date_id
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_id

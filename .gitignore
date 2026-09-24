@@ -28,3 +28,4 @@ Thumbs.db
 exports/
 data/generated/
 '@ | Set-Content -Encoding utf8 .\.gitignore
+local-backups/
