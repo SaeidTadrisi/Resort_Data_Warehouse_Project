@@ -1,5 +1,12 @@
 ﻿# Resort Data Warehouse Pipeline
 
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![MariaDB](https://img.shields.io/badge/Database-MariaDB-003545?logo=mariadb&logoColor=white)](https://mariadb.org/)
+[![dbt](https://img.shields.io/badge/Transform-dbt-FF694B?logo=dbt&logoColor=white)](https://www.getdbt.com/)
+[![Metabase](https://img.shields.io/badge/BI-Metabase-509EE3?logo=metabase&logoColor=white)](https://www.metabase.com/)
+[![Docker](https://img.shields.io/badge/Visualization-Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![ELT](https://img.shields.io/badge/Pattern-ELT-4B5563)](#architecture)
+
 An end-to-end data engineering and business intelligence project that generates synthetic resort operations data, transforms it into a dimensional warehouse with dbt, and presents operational insights in Metabase.
 
 ## Overview
