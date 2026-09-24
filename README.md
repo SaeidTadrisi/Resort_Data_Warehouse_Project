@@ -1,10 +1,10 @@
-﻿# Resort Data Warehouse Pipeline
+# Resort Data Warehouse Pipeline
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![MariaDB](https://img.shields.io/badge/Database-MariaDB-003545?logo=mariadb&logoColor=white)](https://mariadb.org/)
 [![dbt](https://img.shields.io/badge/Transform-dbt-FF694B?logo=dbt&logoColor=white)](https://www.getdbt.com/)
 [![Metabase](https://img.shields.io/badge/BI-Metabase-509EE3?logo=metabase&logoColor=white)](https://www.metabase.com/)
-[![Docker](https://img.shields.io/badge/Visualization-Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Docker](https://img.shields.io/badge/Runtime-Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![ELT](https://img.shields.io/badge/Pattern-ELT-4B5563)](#architecture)
 
 An end-to-end data engineering and business intelligence project that generates synthetic resort operations data, transforms it into a dimensional warehouse with dbt, and presents operational insights in Metabase.
@@ -17,9 +17,9 @@ The project models three resort business processes:
 - Wellness-service usage
 - Investment activity
 
-Python scripts create a normalized transactional source in MariaDB. dbt transforms that source into staging views, dimensions, and fact tables in a separate analytical warehouse. Metabase connects to the warehouse to provide KPI and trend reporting.
+Python scripts create a normalized transactional source database in MariaDB. dbt then transforms it into an analytical warehouse organized around dimensions and facts.
 
-All records are reproducible synthetic data generated for demonstration and learning purposes.
+All records are synthetic and generated with a fixed random seed. Transaction dates are relative to the execution date.
 
 ## Dashboard
 
@@ -52,7 +52,7 @@ The warehouse uses a star-schema-oriented design.
 
 | Model | Grain | Purpose |
 |---|---|---|
-| `dim_date` | One row per calendar date | Shared date dimension across all business processes |
+| `dim_date` | One row per distinct business-process date |
 | `dim_person` | One row per person | Customer demographic attributes |
 | `dim_room` | One row per room | Room, hotel, and resort attributes |
 | `dim_service` | One row per wellness service | Service, wellness center, and resort attributes |
@@ -110,11 +110,11 @@ The default generator creates:
 | Wellness-service usage transactions | 700 |
 | Investment transactions | 400 |
 
-The current dbt build creates 18 models and runs 25 data-quality tests.
+The dbt project currently builds 18 models and runs 25 data-quality tests.
 
 ## Prerequisites
 
-- Python 3.12 or later
+- Python 3.10 or later (Python 3.12 tested)
 - MariaDB running locally and reachable on port `3307`
 - dbt Core with the `dbt-mariadb` adapter
 - Docker Desktop only if you want to run Metabase locally
@@ -238,4 +238,6 @@ dbt tests validate:
 
 ## Author
 
-Saeid Tadrisi
+**Saeid Tadrisi**
+
+- GitHub: [SaeidTadrisi](https://github.com/SaeidTadrisi)

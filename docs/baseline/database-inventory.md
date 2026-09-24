@@ -1,4 +1,4 @@
-﻿# Baseline Database Inventory
+# Baseline Database Inventory
 
 This file records the database state before the portfolio rebuild.
 It contains table names, columns, and row counts only.
