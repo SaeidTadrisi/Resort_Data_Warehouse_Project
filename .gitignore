@@ -1,13 +1,30 @@
-/.idea/*
+@'
+# Local environment and credentials
+.env
+.env.*
+!.env.example
 
-logs/
-*.log
-
-target/
-dbt_packages/
-dbt_modules/
-
-__pycache__/
-*.pyc
+# Python
 .venv/
 venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# dbt artifacts
+dbt/my_resort_project/target/
+dbt/my_resort_project/logs/
+dbt/my_resort_project/dbt_packages/
+dbt/my_resort_project/dbt_modules/
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.log
+exports/
+data/generated/
+'@ | Set-Content -Encoding utf8 .\.gitignore

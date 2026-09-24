@@ -1,0 +1,5 @@
+@'
+Faker>=25.0,<30.0
+mysql-connector-python>=9.0,<10.0
+python-dotenv>=1.0,<2.0
+'@ | Set-Content -Encoding utf8 .\requirements.txt
